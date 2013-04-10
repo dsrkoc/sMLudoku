@@ -1,10 +1,13 @@
-Group is
+Group
+    signature RUN_UTIL
+    structure Run
+is
 
-$/basis.cm
+    $/basis.cm
 
-sudoku-types.sml   (* value and cell type, functions for string <-> cell conversions *)
-sudoku-ui.sml      (* reading sudoku puzzles from file or stdin, printing solved puzzles to stdout *)
-sudoku-convert.sml (* converting to data structure that solver works with *)
-sudoku-solver.sml  (* solves the sudoku puzzle *)
+    sudoku-types.sml   (* value and cell type, functions for string <-> cell conversions *)
+    sudoku-ui.sml      (* reading sudoku puzzles from file or stdin, printing solved puzzles to stdout *)
+    sudoku-convert.sml (* converting to data structure that solver works with *)
+    sudoku-solver.sml  (* solves the sudoku puzzle *)
 
     run-util.sml        (* defines functions for solving sudoku puzzle read from file or standard input *)

@@ -85,7 +85,6 @@ fun readFromFile fname =
    board list -> unit *)
 fun prettyprint boards =
     let val _ = print ("==> number of solutions: " ^ Int.toString (List.length boards) ^ "\n")
-        val _ = print  "    first solution: \n\n"
         val p = print o SudokuTypes.to_str o List.nth
         fun pp (l, i) = (print " " ; p (l, i))
         fun print3 xs = (pp (xs, 0) ; pp (xs, 1) ; pp (xs, 2) ; print " |" ; List.drop (xs, 3))
@@ -94,8 +93,8 @@ fun prettyprint boards =
         fun ppr (l, i) = (print "|" ; pr (l, i) ; print "\n")
         fun print3Rows xs = (ppr (xs, 0) ; ppr (xs, 1) ; ppr (xs, 2) ; print "\n" ; List.drop (xs, 3))
         val printAll = print3Rows o print3Rows o print3Rows
-    (* in List.app (fn row => printRow row ; print "\n") b *)
-    in ignore ((printAll o hd) boards)
+        fun printBoard b = ignore (print "    solution:\n\n" ; printAll b)
+    in List.app printBoard boards
     end
 
 end
